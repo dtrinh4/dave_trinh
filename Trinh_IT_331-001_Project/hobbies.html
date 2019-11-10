@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>David Trinh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+	
+<script type="text/javascript">
+	
+	//user defined function 
+	function meme(){
+		//variable used to store the original string inputted by the user from the "textCon" textarea
+		var originalText = document.getElementById("textCon").value;
+		//split the string into an array called 'a'
+		var a = originalText.split('');
+		//declare a variable containing empty string to be incremented later on 
+		let memeText = '';
+		
+		//declare a variable and set it to the length of the array
+		var aLength = a.length;
+		
+		//for loop that runs through all indexes of array a 
+		for (var i = 0; i < aLength; i++){
+			//create a random number (1 or 2) basically I decided even or odd number would determine capitalization (50/50)
+			var ranNum = Math.floor(Math.random() * 2) + 1;
+			//temporary variable which is empty string
+			var temp = '';
+			
+			//if ranNum mod 2 returns 0, that means it is an even number 
+			if (ranNum % 2 == 0){
+				//temporarily store a[i] in temp
+				temp = a[i];
+				//set temp to uppercase
+				temp = temp.toUpperCase();
+				//increment meme text
+				memeText += temp;
+			}
+			//else odd
+			else {
+				//temporarily store a[i] in temp
+				temp = a[i];
+				//set temp to lowercase
+				temp = temp.toLowerCase();
+				//increment meme text
+				memeText += temp;
+			}
+		}
+		//display the memeText into the second textarea tag
+		document.getElementById("displayText").innerHTML = memeText;
+	}
+	
+	//function that listens for when memeButton gets clicked
+	function start(){
+		document.getElementById("memeButton").addEventListener("click", meme, false);
+	}
+	
+	//this function defines what color to change the background of various divs to on mouseOver event
+	function mOver(e) {
+		if (e.target.getAttribute("id") == "muayDiv") {
+			e.target.setAttribute("style", "background-color: #ff8080");
+		}
+		else if (e.target.getAttribute("id") == "jitsDiv") {
+			e.target.setAttribute("style", "background-color: #99d6ff");
+		}
+		else if (e.target.getAttribute("id") == "animeDiv") {
+			e.target.setAttribute("style", "background-color: #adebad");
+		}
+		else if (e.target.getAttribute("id") == "memeDiv") {
+			e.target.setAttribute("style", "background-color: #ccb3ff");
+		}
+	}
+	
+	//this function returns divs to their original background color on mouseOut event
+	function mOut(e) {
+		if (e.target.getAttribute("id") == "muayDiv") {
+			e.target.setAttribute("style", "background-color: #e0e0eb");
+		}
+		else if (e.target.getAttribute("id") == "jitsDiv") {
+			e.target.setAttribute("style", "background-color: #e0e0eb");
+		}
+		else if (e.target.getAttribute("id") == "animeDiv") {
+			e.target.setAttribute("style", "background-color: #e0e0eb");
+		}
+		else if (e.target.getAttribute("id") == "memeDiv") {
+			e.target.setAttribute("style", "background-color: #e0e0eb");
+		}
+	}
+	//event listener that listens for the load event
+	window.addEventListener("load", start, false);
+	
+	//listens for mouse over event and calls mOver function
+	document.addEventListener("mouseover", mOver, false);
+	//listens for mouse out event and calls mOut function
+	document.addEventListener("mouseout", mOut, false);
+	
+</script>
+</head>
+
+<body>
+
+<div class="col-8 col-s-9" id="muayDiv">
+<h1>What do I like to do?</h1>
+<p>Jump to: <a href="#muay">muay thai</a>, <a href="#jits">jiu jitsu</a>, <a href="#anime">anime</a>.</p>
+
+<img src="muay.jpg" class="img-me3" alt="Picture of Muay Thai">
+	
+<p id="muay"><b>Muay Thai</b></p>
+<p>One of my hobbies is training in combat sports. I currently go to a local MMA gym called <a href="https://www.capitalmma.com/">Capital MMA </a>where I train in <a href="https://en.wikipedia.org/wiki/Muay_Thai">Muay Thai</a> and <a href="https://en.wikipedia.org/wiki/Brazilian_jiu-jitsu">Jiu Jitsu</a>. I think martial arts is a big part of my life, as I grew up training in Tae Kwon Do and also eventually becomming an instructor for the same sport.</p>
+
+<p>Muay Thai is a form of boxing that originated from Thailand. What makes this sport unique is the usage of knees and elbows. It is for this reason why we call Muay Thai the art of the 8 limbs. Your arms, legs, knees, and elbows. </p><br/>
+	</div>
+	
+<div class="row">
+  <div class="col-2 col-s-3 menu">
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+	  <li><a href="hello.html">Hello!</a></li>
+      <li><a href="misc.html">Disclaimer</a></li>
+    </ul>
+  </div>
+	
+<div class="col-8 col-s-9" id="jitsDiv">
+<p id="jits"><b>Jiu Jitsu</b></p>
+<img src="jits.jpg" class="img-me2" alt="Picture of Jiu Jitsu">
+	
+<p>Jiu Jitsu, on the other hand, is a completely different beast. This form of martial arts relies on technical skill in order to submit your opponent.There are two variations for jiu jitsu, gi and no gi. A gi is basically the uniform that students wear. No gi jiu jitsu is commonly seen in large fight entertainment organizations, such as the UFC.</p>
+
+<p>Personally, my favorite form of jiu jitsu is no gi. Mostly because it provides a more realistic scenario, should the situation ever arrive that you need to defend yourself in reality. To people who don't train, this sport might seem a bit boring because there is no striking involved. However, high levels cannot be achieved without years of experience and mastery of fundamentals.</p>
+	</div>
+
+<div class="col-5 col-s-9" id="animeDiv">
+<h2>Aside from combat sports, I also really like anime!</h2>
+	
+<p>Anime is just a fun way to pass time. I grew up watching many different kinds, but my favorite genres are slice of life, comedy, and fantasy. Here is a short list of some of my favorites:</p>
+
+<ul class="a" id="anime">
+	<li>Naruto</li>
+	<li>My Hero Academia</li>
+	<li>Rave Master</li>
+	<li>One Punch Man</li>
+	<li>Sword Art Online</li>
+	<li>Code Geass</li>
+	<li>Your Lie in April</li>
+	<li>Etc.</li>
+	
+</ul>
+	</div><br>
+	
+<div class="col-5 col-s-9" id="memeDiv">
+<h2>(... and memes!)</h2>
+<p>Check out this Spongebob meme text converter I made:</p>
+<form id="form1" onSubmit="return false"> 
+<img id="pictureM" src="sponge.jpg" alt="spongebob meme"><br>
+<textarea id="textCon"></textarea>
+<button id="memeButton" onclick="meme()">Meme</button>
+<textarea id="displayText"></textarea>
+</form>
+</div>
+	</div>
+</body>
+</html>

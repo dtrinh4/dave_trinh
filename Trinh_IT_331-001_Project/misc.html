@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>David Trinh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+	
+	//declare global variable child so that it is an object that can be used later in the future if needed
+	var child;
+	
+	//user-defined function to open a window with height:400 and width:500 to display the disclaimer statement for my website. 
+	function open_window(){
+		child = window.open("", "", "height=400,width=500");
+		child.document.write("<h2>Disclaimer, please read!</h2><br>");
+		child.document.write("<p>'This website is developed as an educational project. Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use.'</p><br>");
+		child.document.write("<p>Any pictures used on this website were generated on my own, or were found through the Google search engine labeled under 'Labeled for reuse with modification' in the usage rights filter.</p>");
+	}
+	
+	//this is unecessary for the webpage, it is just here. 
+	window.addEventListener("load", start, false);
+	
+</script>
+</head>
+
+<body>
+  <div class="col-2 col-s-3 menu">
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+	  <li><a href="hello.html">Hello!</a></li>
+      <li><a href="misc.html">Disclaimer</a></li>
+    </ul>
+  </div>
+	
+<div class="col-6 col-s-7">
+<h2>Please click "Open Window" to read the disclaimer statement.</h2>
+<button onclick="open_window()">Open Window</button>
+</div>
+
+	
+</body>
+</html>

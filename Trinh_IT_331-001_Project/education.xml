@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<educations>
+	
+	<education>
+		<language>Java</language>
+		<experience>Intermediate</experience>
+		<learn>Formal instruction in college</learn>
+	</education>
+	
+	<education>
+		<language>Python</language>
+		<experience>Beginner</experience>
+		<learn>Formal instruction in college</learn>
+	</education>
+	
+	<education>
+		<language>PHP</language>
+		<experience>Intermediate</experience>
+		<learn>Formal instruction in college</learn>
+	</education>
+	
+	<education>
+		<language>C++</language>
+		<experience>Beginner</experience>
+		<learn>Self taught</learn>
+	</education>
+	
+	<education>
+		<language>Robot C</language>
+		<experience>Intermediate</experience>
+		<learn>Robotics through schools</learn>
+	</education>
+	
+</educations><?xml version="1.0" encoding="utf-8"?>

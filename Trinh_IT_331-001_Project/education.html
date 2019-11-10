@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>David Trinh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<script src="SpryAssets/SpryData.js" type="text/javascript"></script>
+<script src="SpryAssets/xpath.js" type="text/javascript"></script>
+	
+<script type="text/javascript">
+	
+	//declare a variable object to contain xml data
+	var dtEducation = new Spry.Data.XMLDataSet("education.xml", "educations/education");	 
+	
+	//intialize a variable to hold a random number between 1-3
+	var ran;
+	
+	//function that is called on the load event and generates a random number between 1 and 3. 
+	function start() {
+		//set the ran variable to a random number between 1 and 3
+		ran = Math.floor(Math.random() * 3) + 1;
+		
+		//get the element by id of the tag that's going to contain the image and then set the src attribute to the random image using the variable ran
+		document.getElementById("randomImage").setAttribute("src", "ran" + ran + ".jpg");
+		document.getElementById("randomImage").setAttribute("alt", "School logo");
+	}
+	
+	//on window load call start function
+	window.addEventListener("load", start, false);
+</script>
+</head>
+
+<body>
+	
+<!-- this is the code for the nav-bar, a unordered list was used -->
+
+  <div class="col-3 col-s-3 menu">
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+	  <li><a href="hello.html">Hello!</a></li>
+      <li><a href="misc.html">Disclaimer</a></li>
+    </ul>
+  </div>
+
+<!-- div that contains the table of my education -->
+<div class="col-6 col-s-3 menu">
+<h2>Here is a table of my current education history:</h2>
+<table style="width:100%">
+  <tr>
+    <th>School</th>
+    <th>Education Level</th>
+    <th>Years attended</th>
+  </tr>
+  <tr>
+    <td><a href="https://woodbridgehs.pwcs.edu/">Woodbridge Senior High School</a></td>
+    <td>High school diploma (GED)</td>
+    <td>2009-2013</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.nvcc.edu/">Northern Virginia Community College (NVCC)</a></td>
+    <td>Associate's Degree in Computer Science</td>
+    <td>2013-2016</td>
+  </tr>
+  <tr>
+    <td><a href="https://www2.gmu.edu/">George Mason University</a></td>
+    <td>Bachelor's in IT</td>
+    <td>2016-Present</td>
+  </tr>
+</table>
+	<!-- created a new table to contain xml data -->
+	<div spry:region="dtEducation">
+		<h2>Here is a table of some programming languages I know:</h2>
+	<table id="events">
+		<tr>
+			<th scope="col">Language</th>
+			<th scope="col">Skill Level</th>
+			<th scope="col">Learning Method</th>
+		</tr>
+		<tr spry:repeat="dtEducation" spry:hover="rowHover" spry:setrow="dtEducation">
+			<td>{language}</td>
+			<td>{experience}</td>
+			<td>{learn}</td>
+		</tr>
+	</table>
+	</div>
+	</div>
+	
+<!-- this div will contain my random images for project 2 --> 
+<div class="col-2 col-s-3">
+<img src="placeholder" alt="" height="200" width="200" id="randomImage">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>David Trinh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+	
+<script type="text/javascript">
+	
+	//declaring global variables to hold input string from the user
+	var firstName = localStorage.getItem("firstname");
+	var lastName = localStorage.getItem("lastname");
+	
+	//function that stores the user's input into the global variables 
+	function collectName(){
+		firstName = document.getElementById("fName").value;
+		lastName = document.getElementById("lName").value;
+		
+		//after storing the input into the variables, store the variable into local storage
+		localStorage.setItem("firstname", firstName);
+		localStorage.setItem("lastname", lastName);
+	}
+	
+	//function that completely empties local storage data
+	function clearStorage() {
+		localStorage.clear();
+	}
+	
+	//this function appends an image tag to the webpage of a puppy
+	function insert_node() {
+		//create a variable image tag
+		var img = document.createElement("img");
+		//set the source of the image tag variable to puppy.jpg
+		img.src = "puppy.jpg";
+		//create a variable called src so we can choose where to append
+		var src = document.getElementById("puppy");
+		//append image variable as a child of the src variable
+		src.appendChild(img);
+		
+	}
+	
+	
+	//function that is called immediately when the page is loaded
+	function start(){
+		document.getElementById("welcomeTag").innerHTML = "<h2>Hey! Good to see you, " + firstName + " " + lastName + "!</h2>";
+		document.getElementById("highlight").addEventListener("click", highlight_node, false);
+	}
+
+	//evenlistener for when the webpage loads and calls the start function
+	window.addEventListener("load", start, false);
+	
+</script>
+	
+</head>
+
+<body>
+<!-- this is the div containing my nav bar -->
+<div class="col-2 col-s-3 menu">
+<ul>
+  <li><a href="index.html" class="active">Home</a></li>
+  <li><a href="education.html">Education</a></li>
+  <li><a href="hobbies.html">Hobbies</a></li>
+  <li><a href="hello.html">Hello!</a></li>
+  <li><a href="misc.html">Disclaimer</a></li>
+</ul>
+</div>
+	
+<!-- this is the div that is going to contain the hello message to the user with their name --> 
+<div class="col-10 col-s-3">
+	<p id="welcomeTag"></p>
+</div>
+	
+<!-- this is a form to collect user input for their name -->	
+<div class="col-7 col-s-3">
+	<form id="form1">
+	Not you? Please click here to reset the local storage.<br>
+	<button onclick="clearStorage()">Reset</button><br>
+	Otherwise, I'd like to get to know you! Please enter your first and last name below:<br>
+	First name: <input type="text" id="fName"><br>
+	Last name: <input type="text" id="lName"><br>
+	<!-- <input type="button" id="subButton" value="Submit"> -->
+	<button onclick="collectName()">Submit</button>
+		
+	
+	</form>
+</div>
+
+	<!-- div that contains a form with the buttons used for dynamic webpage changing -->
+	<div class="col-10 col-s-3" id="puppy">
+		<form onSubmit="return false">
+			<button onclick="insert_node()">Click Me For a Surprise!</button>
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>David Trinh</title>
+<script type="text/javascript">
+	
+	//user-defined function to store the last modified date and time into a variable
+	//then get element by id and set innerHTML to last mod time and date
+	function showMod() {
+	  var ran = document.lastModified;
+	  document.getElementById("lastmod").innerHTML = "Date last modified: " + ran;
+	}	
+	
+	//function to change the style of the text in the descritpion 
+	function highlight_node() {
+		var currentNode = document.getElementById("welcomeTitle");
+		currentNode.setAttribute("class", "highlighted");
+	}
+
+  var elem = document.getElementById("goodBoi");  
+	
+function movePuppy() {
+  var elem = document.getElementById("goodBoi");   
+  var pos = 0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 1700) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+	
+	
+	//on window load call showMod function
+	window.addEventListener("load", showMod, false);
+</script>
+</head>
+<body>
+
+	
+<!-- this is the code for the nav-bar, a unordered list was used -->
+<div class="row">
+  <div class="col-3 col-s-3 menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+	  <li><a href="hello.html">Hello!</a></li>
+      <li><a href="misc.html">Disclaimer</a></li>
+    </ul>
+  </div>
+
+<!-- this is the body of this web page, contains most of the content pertaining to myself -->
+  <div class="col-6 col-s-9">
+    <h1 id="welcomeTitle">Welcome to My Portfolio!</h1><br>
+	<img src="me.jpg" class="img-me" alt="Picture of David Trinh">
+    <p>On this website you will find all sorts of information about me. My hobbies, education, work, and general information can all be found on these webpages. Please feel free to navigate throughout the pages using the navigation bar above!</p>
+
+<p>My name is David Trinh and this is my online portfolio. I am a first generation Asian American citizen with Vietnamese descent. My parents immigrated from Vietnam to the U.S. to escape the war and start a new life. I've been living in Northern Virginia for over 20 years and I know the area very well.</p>
+	
+<p>My goals for the future are to graduate with my 4 year degree in IT concentrated in Web Development and to hopefully find a job in the industry doing just that!</p><br>
+Here is a link to my <a href="style.css">style sheet</a> in case you wanted to see it. <br>
+<button onclick="highlight_node()">Style the Title!</button>
+<p id="lastmod"></p>
+  </div>
+
+  <div class="col-3 col-s-12">
+    <div class="aside">
+		
+<!-- form to contact me -->
+<form><fieldset>
+	<legend><b>If you'd like to contact me, please fill out this form and I will reach out to you.</b></legend><br><br>
+	First Name: <br/>
+	<input type="text" name="firstname" placeholder="First Name">
+	<br/>
+	Last name: <br/>
+	<input type="text" name="lastname" placeholder="Last Name">
+	<br/>
+	Email: <br/>
+	<input type="email" name="email" placeholder="youremail@email.com">
+	<br/>
+	Age:<br>
+	<input type="number" name="number" min="18" max="99" placeholder="18"><br>
+	
+	What are your reason(s) for contacting me?<br/>
+	<input type="checkbox" name="option1" value="option1"> Similar interest in hobbies<br/>
+	<input type="checkbox" name="option2" value="option2"> Work inquries<br/>
+	<input type="checkbox" name="option3" value="option3"> Just felt like it<br/><br>
+	Message:<br/>
+	<textarea placeholder="Please type your message here."></textarea><br/>
+<br/>
+	Lastly, are you a robot? <br>
+	<input type="radio" name="yes" value="yes"> Yes<br>
+	<input type="radio" name="no" value="no"> No<br>
+	<input type="submit">
+	<input type="reset"><br/>
+</fieldset>
+	
+	
+</form>
+    </div>
+  </div>
+</div>
+	
+<div class="col-12 col-s-12" id="dogCage" style="width: 400px; position: relative;">
+	<button onClick="movePuppy()">Take my dog for a walk!</button>
+	<div id="fastBoi">
+	<img src="puppy.gif" alt="gif of a cartoon puppy running" id="goodBoi" style="position: absolute;">
+	</div>
+</div>
+</body>
+</html>
